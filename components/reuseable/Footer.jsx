@@ -68,7 +68,10 @@ const Footer = () => {
                         <h3 className="text-lg uppercase font-semibold mb-3">{item.label}</h3>
                         <div className="">
                             {item.subItems.map((sub) => (
-                                <button key={sub.id} className="block">
+                                <button
+                                    key={sub.id}
+                                    className="block transition-all duration-500 hover:underline hover:ml-2"
+                                >
                                     {sub.label}
                                 </button>
                             ))}
@@ -78,11 +81,21 @@ const Footer = () => {
                 <div className={""}>
                     <h3 className="text-lg uppercase font-semibold mb-3">follow us</h3>
                     <div className={"flex items-center space-x-4 text-lg"}>
-                        <BsFacebook className={""} />
-                        <BsTwitter className={""} />
-                        <BsPinterest className={""} />
-                        <BsInstagram className={""} />
-                        <BsYoutube className={""} />
+                        <button className="transition-transform duration-300 hover:scale-125">
+                            <BsFacebook className={""} />
+                        </button>
+                        <button className="transition-transform duration-300 hover:scale-125">
+                            <BsTwitter className={""} />
+                        </button>
+                        <button className="transition-transform duration-300 hover:scale-125">
+                            <BsPinterest className={""} />
+                        </button>
+                        <button className="transition-transform duration-300 hover:scale-125">
+                            <BsInstagram className={""} />
+                        </button>
+                        <button className="transition-transform duration-300 hover:scale-125">
+                            <BsYoutube className={""} />
+                        </button>
                     </div>
                 </div>
             </section>
