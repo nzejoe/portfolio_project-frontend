@@ -52,8 +52,8 @@ const Footer = () => {
         },
     ];
     return (
-        <div className="bg-secondary/10 pt-14 pb-20 px-5 border-b">
-            <section>
+        <div className="bg-secondary/10 pt-14 pb-20 border-b">
+            <section className="px-5 md:grid md:grid-cols-2 gap-10 xl:grid-cols-4">
                 <div className={"mb-7 md:mb-0"}>
                     <h3 className="text-lg uppercase font-semibold mb-3">contact us</h3>
                     <div className={"text-black"}>
