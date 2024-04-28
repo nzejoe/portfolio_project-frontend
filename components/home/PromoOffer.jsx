@@ -6,7 +6,7 @@ const PromoOffer = () => {
             <section className={`section text-center`}>
                 <div className="">
                     <div className={""}>
-                        <h2 className="text-black/20 mb-2">@safekart</h2>
+                        <h2 className="text-black/20 mb-2">@ecomarket</h2>
                         <h1 className="text-2xl font-semibold mb-5">Up to 35% off on all items.</h1>
                         <p className="text-sm mb-2">Last chance to take advantage of our discounts!</p>
                         <form
