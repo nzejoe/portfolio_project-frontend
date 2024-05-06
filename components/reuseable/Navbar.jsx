@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "next/link";
 
 const Navbar = () => {
     const [toggle, setToggle] = useState(false);
@@ -41,7 +42,9 @@ const Navbar = () => {
                     >
                         <ul className="xl:flex xl:space-x-10">
                             {navItems.map((item, idx) => (
-                                <li key={item.id}>{item.label}</li>
+                                <li key={item.id}>
+                                    <Link href={item.link}>{item.label}</Link>
+                                </li>
                             ))}
                         </ul>
                         <div className="-ml-4">
