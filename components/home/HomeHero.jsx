@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const HomeHero = () => {
     return (
@@ -15,6 +16,11 @@ const HomeHero = () => {
                             confidence.
                         </p>
                     </p>
+                    <div className={"mt-5 md:mt-10"}>
+                        <Link href={"/store"} className={`button-lg bg-primary text-white`}>
+                            Get Started
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>
