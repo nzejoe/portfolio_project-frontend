@@ -1,4 +1,6 @@
 import React from "react";
+import Link from "next/link";
+import { BsLinkedin, BsTwitter, BsPinterest, BsGithub } from "react-icons/bs";
 
 const AboutUs = () => {
     return (
@@ -27,9 +29,47 @@ const AboutUs = () => {
                     </p>
                 </div>
 
-                <div className="border-t pt-5">
-                    <h4 className="font-bold mb-3">Meet the Team:</h4>
-                    <div></div>
+                <div className="border-t-2 pt-14 mb-10 md:flex items-start justify-between">
+                    <div className="mb-10 md:mb-0">
+                        <h4 className="font-bold mb-3">Meet the Team:</h4>
+                        <div className={"flex items-center space-x-4 text-lg"}>
+                            <Link
+                                href={"https://www.linkedin.com/in/jonathan-nzete-a36345193/"}
+                                target="_blank"
+                                className="transition-transform duration-300 hover:scale-125"
+                            >
+                                <BsLinkedin className={""} />
+                            </Link>
+                            <Link
+                                href={"https://twitter.com/jonathannzete"}
+                                target="_blank"
+                                className="transition-transform duration-300 hover:scale-125"
+                            >
+                                <BsTwitter className={""} />
+                            </Link>
+                            <Link
+                                href={"https://github.com/nzejoe"}
+                                target="_blank"
+                                className="transition-transform duration-300 hover:scale-125"
+                            >
+                                <BsGithub className={""} />
+                            </Link>
+                        </div>
+                    </div>
+
+                    <div className="">
+                        <h4 className="font-bold mb-3">Project Repository:</h4>
+                        <div className={"flex items-center space-x-4"}>
+                            <Link
+                                href={"https://github.com/nzejoe/portfolio_project-frontend"}
+                                target="_blank"
+                                className="flex items-center space-x-2"
+                            >
+                                <BsGithub className={"text-3xl"} />
+                                <span>GitHub Repository</span>
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
