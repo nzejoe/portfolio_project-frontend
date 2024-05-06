@@ -18,7 +18,7 @@ const Navbar = () => {
         {
             id: 3,
             label: "Dashboard",
-            link: "/dashboard",
+            link: "#",
         },
     ];
     const onToggle = () => {
