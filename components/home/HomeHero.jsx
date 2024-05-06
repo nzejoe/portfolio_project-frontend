@@ -6,7 +6,7 @@ const HomeHero = () => {
         <div>
             <div className="relative">
                 <img src="/images/home/home-hero.jpg" alt="home image" />
-                <div className="absolute left-0 top-0 px-5 pt-4 text-primary md:top-20 xl:top-32">
+                <div className="absolute left-0 top-0 px-5 pt-4 text-primary md:top-20 xl:top-32 xl:left-20">
                     <p className="text-xs">
                         <h2 className="text-2xl md:text-3xl mb-4 xl:text-5xl">
                             Welcome to <span className="font-bold">EcoMarket</span>
