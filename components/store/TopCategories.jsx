@@ -23,7 +23,7 @@ const TopCategories = () => {
 
     return (
         <section className="section">
-            <h1 className="">Top categories</h1>
+            <h1 className="text-xl mb-5">Top categories</h1>
             <div className={""}>
                 <Swiper
                     slidesPerView={2}

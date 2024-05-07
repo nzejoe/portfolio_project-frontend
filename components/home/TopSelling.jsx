@@ -2,6 +2,10 @@ import React, { Fragment } from "react";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+// swipperjs
+import { Swiper, SwiperSlide } from "swiper/react";
+// import required modules
+import { Navigation } from "swiper";
 import LoadingSkeleton from "../reuseable/LoadingSkeleton";
 
 const TopSelling = () => {
@@ -19,11 +23,25 @@ const TopSelling = () => {
 
     return (
         <section className="section ">
-            <h1 className="section-title">Best sellers</h1>
-            <div className={"grid grid-cols-2 gap-5 text-center md:grid-cols-3 mb-10"}>
+            <h1 className="text-xl mb-5">Best sellers</h1>
+            <Swiper
+                slidesPerView={2}
+                spaceBetween={10}
+                navigation={true}
+                modules={[Navigation]}
+                breakpoints={{
+                    768: {
+                        slidesPerView: 3,
+                        centeredSlides: false,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                    },
+                }}
+            >
                 {topProducts.map((product) => {
                     return (
-                        <Fragment key={product.id}>
+                        <SwiperSlide key={product.id}>
                             {!isSuccess ? (
                                 <div className="h-[13rem] rounded-x overflow-hidden xl:h-[20rem]">
                                     <LoadingSkeleton />
@@ -31,10 +49,10 @@ const TopSelling = () => {
                             ) : (
                                 <div
                                     className={
-                                        "h-[13rem] flex flex-col justify-between border rounded-xv p-3 xl:h-[20rem] xl:p-5"
+                                        "h-[13rem] flex flex-col justify-between border rounded-xv p-3 xl:h-[15rem] xl:p-5"
                                     }
                                 >
-                                    <div className={"h-[50%] w-full"}>
+                                    <div className={"h-[40%] w-full"}>
                                         <img
                                             src={product.image}
                                             alt={product.product_name}
@@ -43,7 +61,7 @@ const TopSelling = () => {
                                     </div>
                                     <div className={"flex-1 flex flex-col justify-between items-center"}>
                                         <div>
-                                            <h4 className="text-xs md:text-sm xl:text-base xl:mb-2">
+                                            <h4 className="text-xs md:text-sm xl:mb-2">
                                                 {product.product_name.length > 40
                                                     ? `${product.product_name.slice(0, 40)}...`
                                                     : product.product_name}
@@ -59,15 +77,10 @@ const TopSelling = () => {
                                     </div>
                                 </div>
                             )}
-                        </Fragment>
+                        </SwiperSlide>
                     ); // set it to grid view
                 })}
-            </div>
-            <div className="text-center">
-                <button className="button-lg button-outline border border-primary text-primary hover:bg-primary hover:text-white">
-                    View More
-                </button>
-            </div>
+            </Swiper>
         </section>
     );
 };
