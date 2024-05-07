@@ -1,12 +1,12 @@
 import React from "react";
-import Hero from "@/components/store/Hero";
+import StoreBanner from "@/components/store/StoreBanner";
 import TopCategories from "@/components/store/TopCategories";
 import TopSelling from "@/components/home/TopSelling";
 
 const StorePage = () => {
     return (
         <div>
-            <Hero />
+            <StoreBanner />
             <TopCategories />
             <TopSelling />
         </div>
