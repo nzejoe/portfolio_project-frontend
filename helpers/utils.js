@@ -10,6 +10,8 @@ export const getPaginatedProducts = (products) => {
 
         return paginatedProducts;
     }
+
+    return [[]];
 };
 
 export const getUniqueValues = (arr, type) => {

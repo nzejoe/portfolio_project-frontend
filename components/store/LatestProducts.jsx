@@ -29,13 +29,39 @@ const LatestProducts = () => {
         setPage(index);
     };
 
+    const getFilteredProducts = (data) => {
+        let tempProducts = data; // initiate products in every render
+
+        if (query) {
+            tempProducts = tempProducts.filter((product) =>
+                product.product_name.toLowerCase().startsWith(query.toLowerCase())
+            );
+        }
+
+        if (selectedColor !== "all") {
+            tempProducts = tempProducts.filter((product) => product.variations.colors.includes(selectedColor));
+        }
+
+        if (selectedBrand !== "all") {
+            tempProducts = tempProducts.filter((product) => product.variations.brand.includes(selectedBrand));
+        }
+
+        if (selectedCategory !== "all") {
+            tempProducts = tempProducts.filter((product) => product.category === selectedCategory);
+        }
+
+        if (price) {
+            tempProducts = tempProducts.filter((product) => parseFloat(product.price) <= price);
+        }
+
+        setFIlterProducts(getPaginatedProducts(tempProducts));
+    };
+
     useEffect(() => {
         if (isSuccess) {
-            setFIlterProducts(getPaginatedProducts(data.data));
+            getFilteredProducts(data.data);
         }
-    }, [isSuccess]);
-
-    console.log("filteredProducts :>> ", filteredProducts);
+    }, [isSuccess, query, selectedCategory, selectedColor, selectedBrand, price]);
 
     return (
         <section className="section">
