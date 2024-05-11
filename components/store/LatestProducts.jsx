@@ -6,7 +6,16 @@ import { getPaginatedProducts } from "@/helpers/utils";
 import LoadingSkeleton from "../reuseable/LoadingSkeleton";
 import ProductFilter from "./ProductFilter";
 
+const emptyProducts = Array.from({ length: 1 }).map((_) => Array.from({ length: 6 }).map((_, idx) => ({ id: idx })));
+
 const LatestProducts = () => {
+    const [query, setQuery] = useState("");
+    const [selectedColor, setColor] = useState("all");
+    const [selectedBrand, setBrand] = useState("all");
+    const [selectedCategory, setCategory] = useState("all");
+    const [price, setPrice] = useState(0);
+    const [filteredProducts, setFIlterProducts] = useState(emptyProducts);
+
     const [page, setPage] = useState(0);
 
     const fetchData = () => {
@@ -16,24 +25,36 @@ const LatestProducts = () => {
 
     const { isLoading, data, isSuccess } = useQuery({ queryKey: ["latest-products"], queryFn: () => fetchData() });
 
-    const products = isSuccess
-        ? getPaginatedProducts(data.data)
-        : Array.from({ length: 1 }).map((_) => Array.from({ length: 6 }).map((_, idx) => ({ id: idx })));
-
     const handlePage = (index) => {
         setPage(index);
     };
+
+    useEffect(() => {
+        if (isSuccess) {
+            setFIlterProducts(getPaginatedProducts(data.data));
+        }
+    }, [isSuccess]);
+
+    console.log("filteredProducts :>> ", filteredProducts);
 
     return (
         <section className="section">
             <h1 className="text-xl mb-5">Latest products</h1>
             <div className="xl:grid grid-cols-7 gap-10">
                 <div className="col-span-2">
-                    <ProductFilter products={data?.data || []} isSuccess={isSuccess} />
+                    <ProductFilter
+                        query={query}
+                        selectedCategory={selectedCategory}
+                        selectedColor={selectedColor}
+                        selectedBrand={selectedBrand}
+                        price={price}
+                        products={data?.data || []}
+                        isSuccess={isSuccess}
+                    />
                 </div>
                 <div className="col-span-5">
                     <div className="grid grid-cols-2 gap-2 mb-5 md:grid-cols-3 md:gap-5">
-                        {products[page].map((product) => (
+                        {filteredProducts[page].map((product) => (
                             <Fragment key={product.id}>
                                 {!isSuccess ? (
                                     <div className="h-[13rem] rounded-x overflow-hidden xl:h-[15rem]">
@@ -68,7 +89,7 @@ const LatestProducts = () => {
 
                     {/* PAGINATION BUTTONS */}
                     <div className="w-full flex justify-end text-primary">
-                        {products && products.length > 1 && (
+                        {filteredProducts && filteredProducts.length > 1 && (
                             <div className={"border border-primary rounded-xl"}>
                                 <button
                                     onClick={() => handlePage(page - 1)}
@@ -77,7 +98,7 @@ const LatestProducts = () => {
                                 >
                                     Prev
                                 </button>
-                                {products.map((product, index) => {
+                                {filteredProducts.map((product, index) => {
                                     return (
                                         <button
                                             key={index}
@@ -92,7 +113,7 @@ const LatestProducts = () => {
                                 })}
                                 <button
                                     onClick={() => handlePage(page + 1)}
-                                    disabled={page === products.length - 1}
+                                    disabled={page === filteredProducts.length - 1}
                                     className={`p-3 disabled:opacity-30`}
                                 >
                                     Next
