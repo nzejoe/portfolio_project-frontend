@@ -1,4 +1,6 @@
 import axios from "axios";
+import { Provider } from "react-redux";
+import store from "@/store/reducers";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import MainLayout from "@/components/reuseable/MainLayout";
 import "@/styles/globals.css";
@@ -19,9 +21,11 @@ export default function App({ Component, pageProps }) {
     axios.defaults.withCredentials = true;
     return (
         <QueryClientProvider client={queryClient}>
-            <MainLayout>
-                <Component {...pageProps} />
-            </MainLayout>
+            <Provider store={store}>
+                <MainLayout>
+                    <Component {...pageProps} />
+                </MainLayout>
+            </Provider>
         </QueryClientProvider>
     );
 }
