@@ -19,28 +19,37 @@ const LatestProducts = () => {
         ? getPaginatedProducts(data.data)
         : Array.from({ length: 1 }).map((_) => Array.from({ length: 6 }).map((_, idx) => ({ id: idx })));
 
-    console.log("products :>> ", products);
-
     return (
         <section className="section">
             <h1 className="text-xl mb-5">Latest products</h1>
             <div>
                 <div></div>
-                <div className="grid grid-cols-2 gap-5">
+                <div className="grid grid-cols-2 gap-2">
                     {products[page].map((product) => (
                         <Fragment key={product.id}>
                             {!isSuccess ? (
-                                ""
+                                <div className="h-[13rem] rounded-x overflow-hidden xl:h-[20rem]">
+                                    <LoadingSkeleton />
+                                </div>
                             ) : (
-                                <div className="h-[13rem] flex flex-col justify-between  rounded-xv p-3 xl:h-[15rem] xl:p-5">
-                                    <div className={""}>
+                                <div className="h-[15rem] flex flex-col justify-start  rounded-xv overflow-hidden border border-primary/50 xl:h-[15rem]">
+                                    <div className={"h-[70%] w-full relative mb-2"}>
                                         <img
                                             src={product.image}
                                             alt={product.product_name}
                                             className="h-full w-full object-contain object-center"
                                         />
+                                        <div className="absolute left-0 top-0 z-1 w-full h-full bg-primary/10"></div>
                                     </div>
-                                    <div></div>
+
+                                    <div className="text-center">
+                                        <h4 className="text-xs md:text-sm xl:mb-2">{product.product_name}</h4>
+                                        <div>
+                                            <div className={"text-sm text-primary font-semibold xl:mb-2 xl:text-lg"}>
+                                                $<span>{product.price}</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             )}
                         </Fragment>
