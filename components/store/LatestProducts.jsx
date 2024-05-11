@@ -1,44 +1,46 @@
 import React, { Fragment, useEffect, useState } from "react";
 import Link from "next/link";
-import { useDispatch, useSelector } from "react-redux";
-import { getProducts, actions as productActions } from "@/store/product-slice";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import { getPaginatedProducts } from "@/helpers/utils";
 import LoadingSkeleton from "../reuseable/LoadingSkeleton";
 
 const LatestProducts = () => {
     const [page, setPage] = useState(0);
-    const { filteredProducts, filter, loading } = useSelector((state) => state.products);
-    const dispatch = useDispatch();
 
-    const isFetched = () => {
-        return Boolean(!loading && filteredProducts.length !== 0);
+    const fetchData = () => {
+        let url = "/products/";
+        return axios.get(url);
     };
 
-    const products = isFetched()
-        ? getPaginatedProducts(filteredProducts)
+    const { isLoading, data, isSuccess } = useQuery({ queryKey: ["latest-products"], queryFn: () => fetchData() });
+
+    const products = isSuccess
+        ? getPaginatedProducts(data.data)
         : Array.from({ length: 1 }).map((_) => Array.from({ length: 6 }).map((_, idx) => ({ id: idx })));
 
-    console.log("filteredProducts :>> ", products);
-
-    useEffect(() => {
-        dispatch(getProducts());
-    }, [dispatch]);
+    console.log("products :>> ", products);
 
     return (
         <section className="section">
             <h1 className="text-xl mb-5">Latest products</h1>
             <div>
                 <div></div>
-                <div>
+                <div className="grid grid-cols-2 gap-5">
                     {products[page].map((product) => (
                         <Fragment key={product.id}>
-                            {!isFetched() ? (
+                            {!isSuccess ? (
                                 ""
                             ) : (
-                                <div>
-                                    <div>
-                                        <img src={product.image} alt={product.product_name} />
+                                <div className="h-[13rem] flex flex-col justify-between  rounded-xv p-3 xl:h-[15rem] xl:p-5">
+                                    <div className={""}>
+                                        <img
+                                            src={product.image}
+                                            alt={product.product_name}
+                                            className="h-full w-full object-contain object-center"
+                                        />
                                     </div>
+                                    <div></div>
                                 </div>
                             )}
                         </Fragment>
