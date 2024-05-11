@@ -34,7 +34,7 @@
     }
 
     .eco-input {
-        @apply block w-full border border-[#E0E0E0] rounded-xv focus:outline-none focus:border-primary px-4 py-3 bg-[#F9F9F9] placeholder:text-sm placeholder:capitalize;
+        @apply block w-full border border-[#E0E0E0] rounded-xv focus:outline-none focus:border-primary px-4 py-2 bg-[#F9F9F9] placeholder:text-sm placeholder:capitalize;
     }
 
     .eco-input-group {

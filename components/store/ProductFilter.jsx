@@ -77,7 +77,9 @@ const ProductFilter = ({ products, isSuccess }) => {
                         {colors.map((color, index) => (
                             <Fragment key={index}>
                                 {!isSuccess ? (
-                                    ""
+                                    <div className="w-6 h-6 rounded-x overflow-hidden">
+                                        <LoadingSkeleton />
+                                    </div>
                                 ) : (
                                     <button
                                         key={index}
