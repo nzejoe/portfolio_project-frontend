@@ -22,9 +22,9 @@ const LatestProducts = () => {
     return (
         <section className="section">
             <h1 className="text-xl mb-5">Latest products</h1>
-            <div>
-                <div></div>
-                <div className="grid grid-cols-2 gap-2">
+            <div className="xl:grid grid-cols-7">
+                <div className="col-span-2"></div>
+                <div className="col-span-5 grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-5">
                     {products[page].map((product) => (
                         <Fragment key={product.id}>
                             {!isSuccess ? (
@@ -32,8 +32,8 @@ const LatestProducts = () => {
                                     <LoadingSkeleton />
                                 </div>
                             ) : (
-                                <div className="h-[15rem] flex flex-col justify-start  rounded-xv overflow-hidden border border-primary/50 xl:h-[15rem]">
-                                    <div className={"h-[70%] w-full relative mb-2"}>
+                                <div className="h-[15rem] flex flex-col justify-start  rounded-xv overflow-hidden border border-primary/20 xl:h-[15rem]">
+                                    <div className={"h-[60%] w-full relative mb-2"}>
                                         <img
                                             src={product.image}
                                             alt={product.product_name}
@@ -42,7 +42,7 @@ const LatestProducts = () => {
                                         <div className="absolute left-0 top-0 z-1 w-full h-full bg-primary/10"></div>
                                     </div>
 
-                                    <div className="text-center">
+                                    <div className="text-center px-3">
                                         <h4 className="text-xs md:text-sm xl:mb-2">{product.product_name}</h4>
                                         <div>
                                             <div className={"text-sm text-primary font-semibold xl:mb-2 xl:text-lg"}>
