@@ -27,7 +27,7 @@ const LatestProducts = () => {
     return (
         <section className="section">
             <h1 className="text-xl mb-5">Latest products</h1>
-            <div className="xl:grid grid-cols-7">
+            <div className="xl:grid grid-cols-7 gap-10">
                 <div className="col-span-2">
                     <ProductFilter products={data?.data} isSuccess={isSuccess} />
                 </div>

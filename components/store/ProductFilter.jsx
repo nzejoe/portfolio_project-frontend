@@ -26,7 +26,13 @@ const ProductFilter = ({ products, isSuccess }) => {
         <aside>
             {/* search */}
             <div className={`mb-5`}>
-                <input type="search" placeholder="search" value={query} onChange={onSearchChange} />
+                <input
+                    type="search"
+                    placeholder="search"
+                    className="eco-input"
+                    value={query}
+                    onChange={onSearchChange}
+                />
             </div>
 
             {/* category */}
@@ -42,7 +48,7 @@ const ProductFilter = ({ products, isSuccess }) => {
                             <button
                                 data-category={category}
                                 onClick={filterByCategory}
-                                className={`block px-3 py-2 capitalize text-sm ${
+                                className={`block px-3 py-1 capitalize text-sm ${
                                     selectedCategory === category ? "bg-primary text-white font-semibold" : ""
                                 }`}
                             >
