@@ -26,8 +26,8 @@ const Navbar = () => {
     };
 
     return (
-        <div className="">
-            <nav className="max-w-next-max mx-auto w-full flex items-center justify-between px-5 py-3 xl:grid grid-cols-3">
+        <div className="w-screen bg-white fixed top-0 left-0 z-5">
+            <nav className="max-w-next-max mx-auto w-full flex items-center justify-between px-5 py-5 xl:grid grid-cols-3">
                 <div className="col-span-1">
                     <h5>EcoMarket</h5>
                 </div>
