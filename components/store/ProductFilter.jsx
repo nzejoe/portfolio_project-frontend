@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { BsCheckCircle } from "react-icons/bs";
 import { getUniqueCategory, getUniqueValues, getMaxPrice } from "@/helpers/utils";
 import LoadingSkeleton from "../reuseable/LoadingSkeleton";
@@ -32,6 +32,10 @@ const ProductFilter = ({ products, isSuccess }) => {
         setBrand(brand);
     };
 
+    const filterByPrice = (e) => {
+        setPrice(e.target.value);
+    };
+
     const clearFilter = (e) => {
         setQuery("");
         setColor("all");
@@ -41,7 +45,7 @@ const ProductFilter = ({ products, isSuccess }) => {
     };
 
     return (
-        <aside>
+        <aside className="mb-10 xl:mb-0">
             {/* search */}
             <div className={`mb-5`}>
                 <input
@@ -117,7 +121,7 @@ const ProductFilter = ({ products, isSuccess }) => {
 
                 {/* brands */}
                 <div className={``}>
-                    <h4 clclassName="font-semibold mb-3">Brands</h4>
+                    <h4 className="font-semibold mb-3">Brands</h4>
                     <div className="">
                         <select name="" id="" className="eco-input" onChange={filterByBrand} value={selectedBrand}>
                             {brands ? (
@@ -138,9 +142,24 @@ const ProductFilter = ({ products, isSuccess }) => {
                 </div>
             </div>
 
-            <div className="flex justify-between items-start">
+            <div className="flex justify-between items-end">
                 {/* price range */}
-                <div></div>
+                <div className={``}>
+                    <h4 className="font-semibold mb-3">Price</h4>
+                    <p>
+                        $<span>{price}</span>
+                    </p>
+                    <input
+                        type="range"
+                        min="0"
+                        max={getMaxPrice(products)}
+                        step="1"
+                        disabled={!isSuccess}
+                        onChange={filterByPrice}
+                        value={price}
+                    />
+                </div>
+
                 {/* clear filter */}
                 <div>
                     <button
