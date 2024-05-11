@@ -3,12 +3,21 @@ import { BsCheckCircle } from "react-icons/bs";
 import { getUniqueCategory, getUniqueValues, getMaxPrice } from "@/helpers/utils";
 import LoadingSkeleton from "../reuseable/LoadingSkeleton";
 
-const ProductFilter = ({ products, isSuccess }) => {
-    const [query, setQuery] = useState("");
-    const [selectedColor, setColor] = useState("all");
-    const [selectedBrand, setBrand] = useState("all");
-    const [selectedCategory, setCategory] = useState("all");
-    const [price, setPrice] = useState(0);
+const ProductFilter = (props) => {
+    const {
+        query,
+        setQuery,
+        selectedCategory,
+        setCategory,
+        selectedColor,
+        setColor,
+        selectedBrand,
+        setBrand,
+        price,
+        setPrice,
+        products,
+        isSuccess,
+    } = props;
 
     const colors = isSuccess ? getUniqueValues(products, "colors") : Array.from({ length: 3 });
     const brands = isSuccess ? getUniqueValues(products, "brand") : null;

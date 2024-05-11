@@ -44,10 +44,15 @@ const LatestProducts = () => {
                 <div className="col-span-2">
                     <ProductFilter
                         query={query}
+                        setQuery={setQuery}
                         selectedCategory={selectedCategory}
+                        setCategory={setCategory}
                         selectedColor={selectedColor}
+                        setColor={setColor}
                         selectedBrand={selectedBrand}
+                        setBrand={setBrand}
                         price={price}
+                        setPrice={setPrice}
                         products={data?.data || []}
                         isSuccess={isSuccess}
                     />
