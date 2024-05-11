@@ -68,34 +68,36 @@ const LatestProducts = () => {
                     </div>
 
                     {/* PAGINATION BUTTONS */}
-                    <div className="w-full flex justify-end">
+                    <div className="w-full flex justify-end text-primary">
                         {products && products.length > 1 && (
-                            <div className={""}>
-                                {page > 0 ? (
-                                    <button onClick={() => handlePage(page - 1)} className={""}>
-                                        Prev
-                                    </button>
-                                ) : (
-                                    <button className={``}>Prev</button>
-                                )}
+                            <div className={"border border-primary rounded-xl"}>
+                                <button
+                                    onClick={() => handlePage(page - 1)}
+                                    disabled={page === 0}
+                                    className={`p-3 disabled:opacity-30`}
+                                >
+                                    Prev
+                                </button>
                                 {products.map((product, index) => {
                                     return (
                                         <button
                                             key={index}
-                                            className={`${page === index ? "" : ""}`}
+                                            className={`py-3 px-5 ${
+                                                page === index ? "bg-primary text-white font-semibold" : ""
+                                            }`}
                                             onClick={() => handlePage(index)}
                                         >
                                             {index + 1}
                                         </button>
                                     );
                                 })}
-                                {page < products.length - 1 ? (
-                                    <button onClick={() => handlePage(page + 1)} className={""}>
-                                        Next
-                                    </button>
-                                ) : (
-                                    <button className={``}>Next</button>
-                                )}
+                                <button
+                                    onClick={() => handlePage(page + 1)}
+                                    disabled={page === products.length - 1}
+                                    className={`p-3 disabled:opacity-30`}
+                                >
+                                    Next
+                                </button>
                             </div>
                         )}
                     </div>
