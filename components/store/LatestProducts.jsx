@@ -29,7 +29,7 @@ const LatestProducts = () => {
             <h1 className="text-xl mb-5">Latest products</h1>
             <div className="xl:grid grid-cols-7">
                 <div className="col-span-2">
-                    <ProductFilter />
+                    <ProductFilter products={data?.data} isSuccess={isSuccess} />
                 </div>
                 <div className="col-span-5">
                     <div className="grid grid-cols-2 gap-2 mb-5 md:grid-cols-3 md:gap-5">
