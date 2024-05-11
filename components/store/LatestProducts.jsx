@@ -31,6 +31,7 @@ const LatestProducts = () => {
 
     const getFilteredProducts = (data) => {
         let tempProducts = data; // initiate products in every render
+        setPage(0);
 
         if (query) {
             tempProducts = tempProducts.filter((product) =>
