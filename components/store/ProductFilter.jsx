@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { BsCheckCircle } from "react-icons/bs";
-import { getUniqueCategory, getUniqueValues } from "@/helpers/utils";
+import { getUniqueCategory, getUniqueValues, getMaxPrice } from "@/helpers/utils";
 import LoadingSkeleton from "../reuseable/LoadingSkeleton";
 
 const ProductFilter = ({ products, isSuccess }) => {
@@ -30,6 +30,14 @@ const ProductFilter = ({ products, isSuccess }) => {
     const filterByBrand = (e) => {
         const brand = e.target.value;
         setBrand(brand);
+    };
+
+    const clearFilter = (e) => {
+        setQuery("");
+        setColor("all");
+        setBrand("all");
+        setCategory("all");
+        setPrice(getMaxPrice(products));
     };
 
     return (
@@ -69,7 +77,7 @@ const ProductFilter = ({ products, isSuccess }) => {
                 ))}
             </div>
 
-            <div className="flex justify-between items-start">
+            <div className="flex justify-between items-start mb-5">
                 {/* colors */}
                 <div className={``}>
                     <h4 className="font-semibold mb-3">Colors</h4>
@@ -127,6 +135,20 @@ const ProductFilter = ({ products, isSuccess }) => {
                             )}
                         </select>
                     </div>
+                </div>
+            </div>
+
+            <div className="flex justify-between items-start">
+                {/* price range */}
+                <div></div>
+                {/* clear filter */}
+                <div>
+                    <button
+                        className={`button-regular button-outline border border-primary text-primary hover:bg-primary hover:text-white`}
+                        onClick={clearFilter}
+                    >
+                        Clear filter
+                    </button>
                 </div>
             </div>
         </aside>
