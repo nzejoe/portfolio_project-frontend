@@ -2,7 +2,7 @@
 
 EcoMarket is a sustainable e-commerce platform designed to empower eco-conscious consumers. This project aims to provide a seamless and user-friendly online shopping experience with a focus on ethically sourced and environmentally friendly products.
 
-![EcoMarket Screenshot](https://imgur.com/a/ecomarket-screenshot-kLcUpHH)
+![EcoMarket Screenshot](/images/screenshot-home.png)
 
 ## Introduction
 
