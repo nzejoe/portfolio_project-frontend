@@ -65,6 +65,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 I am a driven and enthusiastic software engineer with a keen interest in developing innovative solutions to real-world problems. With a background in computer science and a passion for sustainable development, I am committed to leveraging technology for social and environmental good.
 
 - [GitHub](https://github.com/nzejoe)
-- [Deployed Project Page](https://ecofriendlymarket.com)
+- [Deployed Project Page](https://ecomarket-portfolio.netlify.app/)
 - [Project’s Landing Page](https://ecomarket-portfolio.netlify.app/)
 - [LinkedIn](https://www.linkedin.com/in/jonathan-nzete-a36345193/)
