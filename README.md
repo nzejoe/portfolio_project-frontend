@@ -1,4 +1,3 @@
-```markdown
 # EcoMarket
 
 EcoMarket is a sustainable e-commerce platform designed to empower eco-conscious consumers. This project aims to provide a seamless and user-friendly online shopping experience with a focus on ethically sourced and environmentally friendly products.
@@ -25,6 +24,7 @@ To get a local copy up and running follow these simple steps:
    ```sh
    npm install
    ```
+   ```sh
    npm run dev
    ```
 
@@ -68,4 +68,3 @@ I am a driven and enthusiastic software engineer with a keen interest in develop
 - [Deployed Project Page](https://ecofriendlymarket.com)
 - [Project’s Landing Page](https://ecomarket-portfolio.netlify.app/)
 - [LinkedIn](https://www.linkedin.com/in/jonathan-nzete-a36345193/)
-```
