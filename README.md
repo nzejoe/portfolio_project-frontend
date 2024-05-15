@@ -1,40 +1,71 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+```markdown
+# EcoMarket
 
-## Getting Started
+EcoMarket is a sustainable e-commerce platform designed to empower eco-conscious consumers. This project aims to provide a seamless and user-friendly online shopping experience with a focus on ethically sourced and environmentally friendly products.
 
-First, run the development server:
+![EcoMarket Screenshot](link-to-screenshot)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Introduction
+
+EcoMarket is designed to help users find and purchase eco-friendly products easily. The platform offers a wide range of products, categorized for convenience, and features a responsive design that works well on mobile devices, tablets, and desktops.
+
+- [Deployed Site](https://ecomarket-portfolio.netlify.app/)
+- [Final Project Blog Article](https://medium.com/@jonathannzete/ecomarket-portfolio-project-60017fca7bcf)
+- [Author's LinkedIn](https://www.linkedin.com/in/jonathan-nzete-a36345193/)
+
+## Installation
+
+To get a local copy up and running follow these simple steps:
+
+1. **Clone the repo**
+   ```sh
+   git clone https://github.com/nzejoe/portfolio_project-frontend.git
+   ```
+2. **Install NPM packages**
+   ```sh
+   npm install
+   ```
+   npm run dev
+   ```
+
+## Usage
+
+To use the EcoMarket platform:
+
+1. Navigate to the [deployed site](https://ecomarket-portfolio.netlify.app/).
+2. Browse through the top categories and top-selling products.
+3. Use the search and filter functions to find specific eco-friendly products.
+4. Add products to your cart and proceed to checkout.
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature`)
+5. Open a Pull Request
+
+## Related Projects
+
+Here are some related projects that you might find interesting:
+
+- [Jumia.com](https://www.jumia.com.ng/)
+- [Konga.com](https://www.konga.com/)
+
+## Licensing
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+**About the Author**
+
+I am a driven and enthusiastic software engineer with a keen interest in developing innovative solutions to real-world problems. With a background in computer science and a passion for sustainable development, I am committed to leveraging technology for social and environmental good.
+
+- [GitHub](https://github.com/nzejoe)
+- [Deployed Project Page](https://ecofriendlymarket.com)
+- [Project’s Landing Page](https://ecomarket-portfolio.netlify.app/)
+- [LinkedIn](https://www.linkedin.com/in/jonathan-nzete-a36345193/)
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
